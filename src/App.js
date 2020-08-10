@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Header from './Component/Header'
+import Home from './Component/Home'
+import PageNotFound from './PageNotFound'
+import Admin from './Component/admin/Admin'
+function App(props) {
+  const pathname = window.location.pathname
+  const pathnamee = pathname.substring(0,6)
+  var component = null;
+  if (pathnamee != "/admin") {
+    component = <BrowserRouter>
+      <Header></Header>
+      <Switch>
+        <Route path="/admin" component={Admin}></Route>
+        <Route exact={true} path="/" component={Home}></Route>
+        <Route component={PageNotFound}></Route>
+      </Switch>
+    </BrowserRouter>
+  } else {
+    component = <Admin/>
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {component}
     </div>
   );
 }
