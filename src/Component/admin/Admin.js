@@ -6,6 +6,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import AddGroup from './AddGroup'
 import EditDeleteGroup from './EditDeleteGroup'
 import PageNotFound from '../../PageNotFound'
+import AddArticle from './AddArticle'
+import EditDeleteArticle from './EditDeleteArticle'
 export default function Admin() {
     return (
         <div>
@@ -20,6 +22,8 @@ export default function Admin() {
                                 <Route exact={true} path="/admin" component={AddGroup}></Route>
                                 <Route   path="/admin/addgroup" component={AddGroup}></Route>
                                 <Route  path="/admin/editdeletegroup" component={EditDeleteGroup}></Route>
+                                <Route path="/admin/addarticle" component={AddArticle}></Route>
+                                <Route path="/admin/editdeletearticle"component={EditDeleteArticle}></Route>
                                 <Route component={PageNotFound}></Route>
                             </Switch>  
                     </div>{/* /.row */}

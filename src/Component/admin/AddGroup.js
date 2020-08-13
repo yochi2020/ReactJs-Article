@@ -12,7 +12,7 @@ export default function AddGroup(props) {
         console.log(result))
   }
   return (
-      <div className="col-6 mx-auto">
+      <div className="col-6 ">
       <h4 className="mb-3">เพิ่มหมวด</h4>
       <form onSubmit={onSubmitTopic}>
         <div className="mb-3">

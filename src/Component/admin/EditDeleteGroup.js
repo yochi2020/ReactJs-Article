@@ -8,6 +8,7 @@ export default function EditDeleteGroup() {
         async function deleteGroup(){
             try {
                 const result = await axios.delete("http://localhost:3001/admin/group/"+idGroup._id)
+                return result
             } catch (error) {
                 console.log(error)
             }
@@ -24,9 +25,9 @@ export default function EditDeleteGroup() {
             }
         }
         getGroup()
-    },)
+    },[idGroup])
     return (
-        <div className="col-6 mx-auto">
+        <div className="col-6">
             <table className="table table-bordered bg-light">
                 <thead>
                     <tr>

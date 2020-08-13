@@ -1,17 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom';
-export default function Home() {
-    const [article,setArticle]=useState([]);
-    useEffect(()=>{
-      axios.get("http://localhost:3001/admin/article")
-      .then(result=>{
-        setArticle(result.data)
-      }).catch(error=>console.log(error))
+import { Link } from 'react-router-dom'
 
+
+export default function Group(props) {
+    const [article,setArticle]=useState([])
+    useEffect(()=>{
+        axios.get('http://localhost:3001/admin/article')
+        .then(result=>{
+            setArticle(result.data)
+        }).catch(err=>console.log(err))
     },[])
-    const cardArticle= article.map(result=>(
-      <div className="col-md-4" key={result._id}>
+    const groupArticle= article.filter(result=>{
+        return result.group_name===props.match.params.group
+    })
+    return (
+            <div className="album py-5 bg-light">
+                <div className="container">
+                <div className="row">
+                {groupArticle.map(result=>(
+                            
+                                <div className="col-md-4" key={result._id}>
           <div className="card mb-4 shadow-sm">
             <svg className="bd-placeholder-img card-img-top" width="100%" height={225} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
             <div className="card-body">
@@ -24,16 +33,14 @@ export default function Home() {
             </div>
           </div>
         </div>
-    ))
-    return (
-  <div>
-  <div className="album py-5 bg-light">
-    <div className="container">
-      <div className="row">
-        {cardArticle}
-      </div>
-    </div>
-  </div>
-</div>
+
+
+        ))}
+                </div>
+                </div>
+            </div>
+
+
+
     )
 }

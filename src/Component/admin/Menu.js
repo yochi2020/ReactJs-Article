@@ -16,13 +16,13 @@ export default function Menu() {
         {/* Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library */}
         <li className="nav-item has-treeview">
-          <a href="#" className="nav-link">
+          <Link  className="nav-link" to="#">
             <i className="nav-icon fas fa-edit" />
             <p>
               Group
               <i className="fas fa-angle-left right" />
             </p>
-          </a>
+          </Link>
           <ul className="nav nav-treeview">
           <li className="nav-item">
               <Link to="/admin/addgroup" className="nav-link">
@@ -41,13 +41,13 @@ export default function Menu() {
        
       
         <li className="nav-item has-treeview">
-          <a href="#" className="nav-link">
+          <Link className="nav-link" to="#">
             <i className="nav-icon fas fa-edit" />
             <p>
               Article
               <i className="fas fa-angle-left right" />
             </p>
-          </a>
+          </Link>
           <ul className="nav nav-treeview">
           <li className="nav-item">
               <Link to="/admin/addarticle" className="nav-link">
