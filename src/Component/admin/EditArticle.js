@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 export default function EditArticle(props) {
-    const [data, setData] = useState([])
+    const [data, setData] = useState({})
     const [group,setGroup]=useState([])
 
     useEffect(() => {
@@ -18,25 +18,35 @@ export default function EditArticle(props) {
 
     const onSubmit=(e)=>{
         e.preventDefault()
-        console.log(data)
-    }
+        axios.put("http://localhost:3001/admin/artucle/"+data._id,data)
+        .then(result=>{
+            props.history.push("/admin/editdeletearticle")
+        }).catch(err=>console.log(err))
+    }   
     return (
         <div className="col-7">
             <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <select name="group" className="form-control">
-
+                <div className="form-group"> 
+                    <select name="group" className="form-control" onChange={e=>{setData({...data,group_name:e.target.value})}}>
+                        <option>Change Group</option>
+                        { 
+                        group.map(result=>(
+                            
+                            <option  value={result.group_name}>{result.group_name}</option>
+                            
+                        ))
+                        }
                     </select>
                 </div>
                     <div>
                         <div className="form-group">
                             <label htmlFor="">Title</label>
-                            <input type="text" className="form-control" name="title" value={data.title} />
+                            <input type="text" className="form-control" name="title" value={data.title} onChange={e=>{setData({...data,title:e.target.value})}}/>
                         </div>
 
                         <div className="from-group">
                             <label>Detail</label>
-                            <textarea className="form-control" name="detail" cols="30" rows="10" value={data.content}>
+                            <textarea className="form-control" name="detail" cols="30" rows="10" value={data.content} onChange={e=>{setData({...data,content:e.target.value})}}>
                                
                             </textarea>
                         </div>

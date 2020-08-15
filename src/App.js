@@ -18,7 +18,7 @@ function App(props) {
         <Route path="/admin" component={Admin}></Route>
         <Route exact={true} path="/" component={Home}></Route>
         <Route path="/article/:id" component={Article}></Route>
-        <Route path="/group/:group" component={Group}></Route>
+        <Route path="/group/:id" component={Group}></Route>
         <Route component={PageNotFound}></Route>
       </Switch>
     </BrowserRouter>

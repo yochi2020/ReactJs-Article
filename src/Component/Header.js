@@ -35,7 +35,7 @@ export default class Header extends Component {
                         
                         {this.state.group.map(result=>(
                             <li className="navbar-item">
-                             <Link to={"/group/"+result.group_name} className="nav-link">{result.group_name}</Link>
+                             <Link to={"/group/"+result._id} className="nav-link">{result.group_name}</Link>
                             </li>
                         ))}
                     </ul>
