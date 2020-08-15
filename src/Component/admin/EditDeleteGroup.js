@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 export default function EditDeleteGroup() {
     const [group, setGroup] = useState([])
     const [idGroup,setIdGroup]=useState({_id:""})
@@ -43,7 +44,7 @@ export default function EditDeleteGroup() {
                                         {result.group_name}
                                         </th>
                                     <td>
-                                        <button className="btn btn-sm btn-success mr-3">Edit</button>
+                                        <Link to={"/admin/editgroup/"+result.group_name+"/"+result._id} className="btn btn-sm btn-success mr-3">Edit</Link>
                                         <button className="btn btn-sm btn-danger" name={result._id} onClick={deleteClick}>Delete</button>
                                     </td>
                                 </tr>

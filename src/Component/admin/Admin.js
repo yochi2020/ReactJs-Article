@@ -8,6 +8,8 @@ import EditDeleteGroup from './EditDeleteGroup'
 import PageNotFound from '../../PageNotFound'
 import AddArticle from './AddArticle'
 import EditDeleteArticle from './EditDeleteArticle'
+import EditGroup from './EditGroup'
+import EditArticle from './EditArticle'
 export default function Admin() {
     return (
         <div>
@@ -24,6 +26,8 @@ export default function Admin() {
                                 <Route  path="/admin/editdeletegroup" component={EditDeleteGroup}></Route>
                                 <Route path="/admin/addarticle" component={AddArticle}></Route>
                                 <Route path="/admin/editdeletearticle"component={EditDeleteArticle}></Route>
+                                <Route path="/admin/editgroup/:group/:id" component={EditGroup}></Route>
+                                <Route path="/admin/editarticle/:id" component={EditArticle}></Route>
                                 <Route component={PageNotFound}></Route>
                             </Switch>  
                     </div>{/* /.row */}

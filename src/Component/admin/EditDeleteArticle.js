@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 export default function EditDeleteArticle() {
     const [data,setData]=useState([])
     const [deleteData,setDeleteData]=useState([])
@@ -26,7 +27,7 @@ export default function EditDeleteArticle() {
         return  <tr key={result._id}>
                     <th scope="row">{result.title}</th>
                     <td>{result.date_time}</td>
-                    <td><button className="btn btn-sm btn-success">Edit</button> <button className="btn btn-sm btn-danger" name={result._id} onClick={handleDelete}>Delete</button></td>
+                    <td><Link to={"/admin/editarticle/"+result._id} className="btn btn-sm btn-success">Edit</Link> <button className="btn btn-sm btn-danger" name={result._id} onClick={handleDelete}>Delete</button></td>
                 </tr>
     })
     return (
