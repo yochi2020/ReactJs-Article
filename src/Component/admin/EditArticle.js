@@ -27,12 +27,12 @@ export default function EditArticle(props) {
         <div className="col-7">
             <form onSubmit={onSubmit}>
                 <div className="form-group"> 
-                    <select name="group" className="form-control" onChange={e=>{setData({...data,group_name:e.target.value})}}>
+                    <select name="group" className="form-control" onChange={e=>{setData({...data,group_id:e.target.value})}}>
                         <option>Change Group</option>
                         { 
                         group.map(result=>(
                             
-                            <option  value={result.group_name}>{result.group_name}</option>
+                            <option  value={result._id}>{result.group_name}</option>
                             
                         ))
                         }

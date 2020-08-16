@@ -46,7 +46,7 @@ export default function AddArticle(props) {
                     <select className="form-control" name="group" onChange={changeGroupName}>
                         <option> Change Group</option>
                         {group.map(result=>{
-                            return <option key={result._id} value={result.group_name}>{result.group_name}</option>
+                            return <option key={result._id} value={result._id}>{result.group_name}</option>
                         })}
                     </select>
                 </div>

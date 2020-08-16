@@ -17,24 +17,14 @@ export default function Group(props) {
         setArticle(result.data)
       }).catch(err=>console.log(err))
   }, [])
-  //หาไอดีgroup 
-  const group_result= group.filter(result=>{
-    return result._id===props.match.params.id
-  })
-
-  //หาarticle ตามgroup
-  const group_name = group_result.map(result=>{
-    return result.group_name
-  })
-
-  const article_result=article.filter(result=>{
-    return result.group_name==group_name
+  const article_group = article.filter(result=>{
+    return result.group_id===props.match.params.id
   })
   return (
     <div className="album py-5 bg-light">
       <div className="container">
         <div className="row">
-          {article_result.map(result => (
+          {article_group.map(result => (
             <div className="col-md-4" key={result._id}>
               <div className="card mb-4 shadow-sm">
                 <svg className="bd-placeholder-img card-img-top" width="100%" height={225} xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
